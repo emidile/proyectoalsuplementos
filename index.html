@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Metaetiquetas SEO Básicas -->
     <title>A.L. SUPLEMENTOS - Potencia tu Entrenamiento</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="La mejor tienda de suplementos deportivos. Encuentra proteínas, creatinas y pre-entrenos al mejor precio.">
+    <meta name="keywords" content="suplementos, whey protein, creatina, pre-entreno, gym, fitness">
+    
+    <!-- Estilos y Fuentes -->
+    <link rel="stylesheet" href="Css/style.css">
+<script src="Js/script.js" defer></script>
+    <link rel="stylesheet" href="Css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
@@ -19,18 +27,23 @@
             <nav class="main-nav">
                 <ul>
                     <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#products">Productos</a></li>
+                    <li><a href="#login">Contacto</a></li>
                 </ul>
             </nav>
             <div class="header-icons">
                 <a href="#login" aria-label="Iniciar Sesión"><i class="fas fa-user"></i></a>
-                <a href="#" aria-label="Carrito de Compras"><i class="fas fa-shopping-cart"></i></a>
+                <!-- Carrito de Compras (Ahora es un botón para abrir el modal) -->
+                <button class="cart-btn" aria-label="Abrir Carrito de Compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <!-- Contador dinámico -->
+                    <span id="cart-counter" class="cart-counter">0</span>
+                </button>
             </div>
         </div>
     </header>
 
-    <main>
+  <main>
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">ENERGÍA QUE TRANSFORMA</h1>
@@ -39,7 +52,7 @@
             </div>
         </section>
 
-        <section id="products" class="products-section">
+      <section id="products" class="products-section">
             <div class="container">
                 <h2 class="section-title">NUESTROS DESTACADOS</h2>
                 <div class="products-grid">
@@ -74,27 +87,29 @@
                 </div>
             </div>
         </section>
+            </div>
+        </section>
 
         <section class="benefits-section">
             <div class="container">
-                 <h2 class="section-title">¿POR QUÉ ELEGIRNOS?</h2>
-                 <div class="benefits-grid">
-                     <div class="benefit-item">
-                         <i class="fas fa-bolt"></i>
-                         <h3>Máxima Energía</h3>
-                         <p>Fórmulas diseñadas para llevar tu rendimiento al límite.</p>
-                     </div>
-                     <div class="benefit-item">
-                         <i class="fas fa-award"></i>
-                         <h3>Calidad Garantizada</h3>
-                         <p>Ingredientes puros y probados para resultados reales.</p>
-                     </div>
-                     <div class="benefit-item">
-                         <i class="fas fa-shipping-fast"></i>
-                         <h3>Envío Rápido</h3>
-                         <p>Recibe tus suplementos en la puerta de tu casa.</p>
-                     </div>
-                 </div>
+                <h2 class="section-title">¿POR QUÉ ELEGIRNOS?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Máxima Energía</h3>
+                        <p>Fórmulas diseñadas para llevar tu rendimiento al límite.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-award"></i>
+                        <h3>Calidad Garantizada</h3>
+                        <p>Ingredientes puros y probados para resultados reales.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <h3>Envío Rápido</h3>
+                        <p>Recibe tus suplementos en la puerta de tu casa.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -102,23 +117,23 @@
             <div class="container login-container">
                 <div class="form-container">
                     <h3>Inicia Sesión</h3>
-                    <form>
-                        <input type="email" placeholder="Tu Correo Electrónico" required>
-                        <input type="password" placeholder="Tu Contraseña" required>
+                    <form id="login-form">
+                        <input type="email" name="email_login" value="" placeholder="Tu Correo Electrónico" required>
+                        <p class="error-message" id="login-error"></p>
+                        <input type="password" name="password_login" value="" placeholder="Tu Contraseña" required>
                         <button type="submit" class="btn btn-primary">Entrar</button>
                     </form>
                 </div>
                 <div class="form-container">
                     <h3>Deja un Comentario</h3>
-                    <form>
-                        <input type="text" placeholder="Tu Nombre" required>
-                        <textarea rows="4" placeholder="Escribe tu opinión aquí..." required></textarea>
+                    <form id="comment-form">
+                        <input type="text" name="comment_name" value="" placeholder="Tu Nombre" required>
+                        <textarea rows="4" name="comment_text" placeholder="Escribe tu opinión aquí..." required></textarea>
                         <button type="submit" class="btn btn-primary">Enviar Comentario</button>
                     </form>
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -132,5 +147,35 @@
         </div>
     </footer>
 
+    <!-- ============================================ -->
+    <!-- MODAL DEL CARRITO DE COMPRAS (Oculto) -->
+    <!-- ============================================ -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <button class="cart-close-btn" aria-label="Cerrar Carrito">&times;</button>
+            <h2>Tu Carrito</h2>
+            <div id="cart-items-container" class="cart-items-container">
+                <!-- Los productos del carrito se añadirán aquí con JS -->
+                <!-- 
+                <div class="cart-item">
+                    <img src="..." alt="...">
+                    <div class="cart-item-info">
+                        <h4 class="cart-item-name">...</h4>
+                        <p class="cart-item-price">...</p>
+                        <input type="number" class="cart-item-quantity" value="1" min="1" data-id="...">
+                    </div>
+                    <button class="cart-item-remove" data-id="...">&times;</button>
+                </div>
+                -->
+            </div>
+            <div class="cart-summary">
+                <strong>Total: <span id="cart-total-price">$0.00</span></strong>
+                <button class="btn btn-primary">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enlace al archivo JavaScript (defer asegura que se cargue después del HTML) -->
+    <script src="Js/script.js" defer></script>
 </body>
 </html>
