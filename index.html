@@ -43,7 +43,7 @@
         </div>
     </header>
 
-  <main>
+    <main>
         <section class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">ENERGÍA QUE TRANSFORMA</h1>
@@ -88,6 +88,70 @@
             </div>
         </section>
             </div>
+
+   <!-- ============================================ -->
+    <!-- HEADER CON BOTÓN AL CARRITO -->
+    <!-- ============================================ -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <a href="#" class="logo">A.L. SUPLEMENTOS</a>
+                
+                <!-- Buscador -->
+                <div class="search-bar">
+                    <form id="search-form">
+                        <input type="text" name="search_query" placeholder="Buscar productos...">
+                        <button type="submit" aria-label="Buscar"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+
+                <div class="header-icons">
+                    <a href="#login" aria-label="Mi Cuenta"><i class="fas fa-user"></i></a>
+                    
+                    <!-- 1. BOTÓN QUE ABRE EL CARRITO -->
+                    <button class="cart-btn" aria-label="Abrir Carrito">
+                        <i class="fas fa-shopping-cart"></i>
+                        <!-- Contador de productos (se actualiza solo) -->
+                        <span id="cart-counter" class="cart-counter">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <div class="container">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">Proteínas</a></li>
+                        <li><a href="#">Rendimiento</a></li>
+                        <li><a href="#">Salud</a></li>
+                        <li><a href="#login">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+                <!-- ============================================ -->
+    <!-- 2. MODAL DEL CARRITO (Visualización de Compra) -->
+    <!-- ============================================ -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-modal-content">
+            <button class="cart-close-btn">&times;</button>
+            <h2>Tu Carrito</h2>
+            
+            <!-- Aquí JS insertará la lista de productos elegidos -->
+            <div id="cart-items-container" class="cart-items-container"></div>
+            
+            <div class="cart-summary">
+                <!-- 3. PRECIO TOTAL (Se suma automáticamente) -->
+                <strong>Total: <span id="cart-total-price">$0</span></strong>
+                
+                <!-- 4. BOTÓN FINALIZAR COMPRA -->
+                <button class="btn btn-primary" id="checkout-btn">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
         </section>
 
         <section class="benefits-section">
